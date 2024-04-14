@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/driver.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            text-align: center;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 0 auto 10px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: calc(100% - 20px);
+        }
+        input[type="submit"] {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: calc(20% - 10px);
+            margin-right: 10px;
+            transition: background-color 0.3s;
+            box-sizing: border-box;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        input[type="submit"]:last-child {
+            margin-right: 0;
+        }
+    
+        .home-button,
+        .compare-button {
+            background-color: black;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+
+        .home-button:hover,
+        .compare-button:hover {
+            background-color: #222;
+        }
+
+        /* Adjustments for InceptionV3 and InceptionV3 Scratch buttons */
+        .inception-button {
+            padding: 10px; /* Add padding to ensure text fits properly */
+            margin-top: 10px; /* Add margin to separate from other buttons */
+            min-width: 200px;
+            width: auto; /* Set width to auto */
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Upload Image</h1>
+        <form action="/result1" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input type="file" name="file">
+            <br>
+            <input type="submit" value="YOLOv3">
+            <input type="submit" formaction="/result2" value="VGG16">
+            <input type="submit" formaction="/result3" value="CNN"> 
+            <br>
+            <input type="submit" formaction="/result4" value="InceptionV3 Pretrained" class="inception-button">
+            <input type="submit" formaction="/result5" value="InceptionV3 Scratch" class="inception-button">
+            <input type="submit" value="compare" formaction="/compare" class="compare-button">
+            <a href="/" class="home-button">Home</a>
+        </form>
+        </div>
+    </div>
+
+    <script>
+        // Client-side validation
+        function validateForm() {
+            var fileInput = document.querySelector('input[type="file"]');
+            if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+                alert("Please select a file.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+

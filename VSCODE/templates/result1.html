@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv3 Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/Ai.webp'); /* Replace 'background.jpg' with your image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .result-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background color */
+            color: #fff; /* Font color */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Adjust shadow color */
+            backdrop-filter: blur(5px); /* Apply blur effect to container */
+            max-width: 80%;
+        }
+        h1 {
+            color: #fff; /* Header font color */
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        ul {
+            padding: 0;
+            list-style-type: none;
+            text-align: center;
+        }
+        li {
+            margin: 10px 0;
+            color: #ccc; /* List item font color */
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>YOLOv3 Detection Results</h1>
+        <img src="data:image/jpeg;base64,{{ image_data }}" alt="Annotated Image">
+        <h2>Detection Results:</h2>
+        <ul>
+            {% for result in detection_results %}
+                <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+        <div class="button-container">
+            <button onclick="location.href='/'">Home</button>
+            <button onclick="location.href='/upload'">Previous</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

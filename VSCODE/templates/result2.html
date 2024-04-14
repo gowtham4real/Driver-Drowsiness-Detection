@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VGG16 Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('/static/yawner.webp');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .result-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            color: #333; /* Dark text color */
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            max-width: 80%;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #007bff; /* Blue header color */
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>VGG16 Prediction Result</h1>
+        <!--<img src="/uploads/{{ filename }}" alt="Uploaded Image">-->
+        <p>Prediction: {{ prediction }}</p>
+        <div class="button-container">
+            <button onclick="location.href='/'">Home</button>
+            <button onclick="location.href='/upload'">Previous</button>
+        </div>
+    </div>
+</body>
+</html>
